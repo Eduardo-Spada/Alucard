@@ -3,6 +3,7 @@ from threading import Thread
 import requests
 import time
 import os
+import bot  # Importa o bot.py
 
 app = Flask('')
 
@@ -17,18 +18,16 @@ def health():
 def ping_self():
     while True:
         try:
-            # Ping na URL do Render para manter o app acordado
-            requests.get("https://pet-battle-system-code.onrender.com")  # Substitua pela URL do seu bot no Render
+            requests.get("https://pet-battle-system-code.onrender.com")  # Substitua pela URL do Render
         except:
             pass
-        time.sleep(600)  # A cada 10 minutos
+        time.sleep(600)
 
 def manter_vivo():
     port = int(os.environ.get("PORT", 8080))
     t1 = Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': port})
-    t2 = Thread(target=ping_self)
     t1.start()
-    t2.start()
 
 if __name__ == '__main__':
     manter_vivo()
+    bot.run_bot()
