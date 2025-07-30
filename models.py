@@ -1,4 +1,5 @@
 import requests
+import os
 
 def get_image_description(image_path):
     # Defina a URL da API do Hugging Face ou qualquer outro serviço
