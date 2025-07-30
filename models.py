@@ -6,7 +6,8 @@ def get_image_description(image_path):
     
     # Envie a imagem para a API e receba a descrição
     headers = {
-        "Authorization": "Bearer seu_token_da_api"  # Substitua pelo seu token da API
+        "Authorization": f"Bearer {os.getenv('HF_TOKEN')}"
+  # Substitua pelo seu token da API
     }
 
     # Abrir a imagem e enviar para a API
