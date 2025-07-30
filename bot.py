@@ -30,4 +30,5 @@ async def descrever(ctx):
     descricao = get_image_description("temp.jpg")
     await ctx.send(f"Descrição: {descricao}")
 
-bot.run(TOKEN)
+def run_bot():
+    bot.run(TOKEN)
